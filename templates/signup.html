@@ -1,0 +1,106 @@
+{% block body %}
+<html>
+    <head>
+         <!-- Required meta tags -->
+      <title>Sign Up</title>
+      <meta charset="utf-8">
+        
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>TypekitConfig={kitId:"hum1oye",scriptTimeout:1.5e3},function(){var a=document.getElementsByTagName("html")[0];a.className+=" wf-loading";var b=setTimeout(function(){a.className=a.className.replace(/(\s|^)wf-loading(\s|$)/g,""),a.className+=" wf-inactive"},TypekitConfig.scriptTimeout),c=document.createElement("script");c.src="//use.typekit.com/"+TypekitConfig.kitId+".js",c.type="text/javascript",c.async="true",c.onload=c.onreadystatechange=function(){var a=this.readyState;if(!a||a=="complete"||a=="loaded"){clearTimeout(b);try{Typekit.load(TypekitConfig)}catch(c){}}};var d=document.getElementsByTagName("script")[0];d.parentNode.insertBefore(c,d)}()</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="https://rawgit.com/aws/amazon-cognito-identity-js/master/dist/aws-cognito-sdk.min.js"></script>
+      <script src="https://rawgit.com/aws/amazon-cognito-identity-js/master/dist/amazon-cognito-identity.min.js"></script>
+
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style_signup.css')}}">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+    </head>
+    <body>
+      <div class="container">  
+
+        <form id="loginForm" name="loginForm"  method="POST" action="{{url_for('get_code')}}">
+
+          <!--center><a href="http://developers.meraki.com"><img src=".static/img/meraki-logo.png" width="50%"/></a></center-->
+          <center><img src="static/meraki-logo.png" width="50%"/></center>
+          <br>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="name" name="name" placeholder="Name" required autofocus>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="name_mid" name="name_mid" value="none" placeholder="Middle Name" autofocus>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="name_ap" name="name_ap" placeholder="First Last Name" required autofocus>
+          </div>
+
+          <div class="form-group">
+            <input type="text" class="form-control" id="name_am" name="name_am" placeholder="Second Last Name" required autofocus>
+          </div>
+
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" name="user_email_address" aria-describedby="email" placeholder="Email" required>
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" name="password"  placeholder="Password" required>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="check" required>
+            <a href="#" data-toggle="modal" data-target="#modal-terms-conditions"><label class="form-check-label" for="exampleCheck1">Terms & Conditions</label></a>
+          </div>
+          <button type="submit" class="btn btn-primary" value="Sign In" onclick="register()">Register</button>
+          <center><p class="copyright">Sample by Meraki iot automatization team :] </p></center>
+
+        </form>
+        <!-- Modal -->
+        <!--div class="modal fade" id="modal-terms-conditions" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Terminos y condiciones</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                Insertar politicas de privacidad y uso de datos del usuario
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" id="cerrar">Close</button>
+              </div>
+            </div>
+          </div>
+        </div-->
+
+      </div>
+
+      <hr>
+
+      <!--div class="footer">
+        <h4>Debugging Stats</h4>
+        <p><label>Base Grant URL: </label><label id="baseGrantURL">{{base_grant_url}}  </label></p>
+        <p><label>User Continue URL: </label><label id="userContinueURL">{{user_continue_url}}</label></p>
+        <p><label>Client IP: </label><label id="clientIP">{{client_ip}}</label></p>
+        <p><label>Client MAC: </label><label id="clientMAC">{{client_mac}}</label></p>
+        <p><label>Access Point MAC: </label><label id="nodeMAC">{{node_mac}}</label></p>
+      </div-->
+      
+          
+      <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <!--script type=text/javascript src="{{ url_for('static', filename='js/aws-cognito-sdk.min.js') }}"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='js/amazon-cognito-identity.min.js') }}"></script-->
+    <script type=text/javascript src="{{url_for('static', filename='js/meraki_auth.js') }}"></script>
+       
+
+    </body>
+    
+
+</html>
+{% endblock  %}

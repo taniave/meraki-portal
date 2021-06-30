@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+    {% block body %}
+<head>
+    <title>Verification</title>
+      <meta charset="utf-8">
+        
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script>TypekitConfig={kitId:"hum1oye",scriptTimeout:1.5e3},function(){var a=document.getElementsByTagName("html")[0];a.className+=" wf-loading";var b=setTimeout(function(){a.className=a.className.replace(/(\s|^)wf-loading(\s|$)/g,""),a.className+=" wf-inactive"},TypekitConfig.scriptTimeout),c=document.createElement("script");c.src="//use.typekit.com/"+TypekitConfig.kitId+".js",c.type="text/javascript",c.async="true",c.onload=c.onreadystatechange=function(){var a=this.readyState;if(!a||a=="complete"||a=="loaded"){clearTimeout(b);try{Typekit.load(TypekitConfig)}catch(c){}}};var d=document.getElementsByTagName("script")[0];d.parentNode.insertBefore(c,d)}()</script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+      <script src="https://rawgit.com/aws/amazon-cognito-identity-js/master/dist/aws-cognito-sdk.min.js"></script>
+      <script src="https://rawgit.com/aws/amazon-cognito-identity-js/master/dist/amazon-cognito-identity.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='style_signup.css')}}">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</head>
+
+<body>
+        <div class="container">
+        <form id="loginForm" onsubmit="return false;">
+            <div class="form-group">
+                 <input id="code_username" type="text" class="form-control" placeholder="Enter Email">
+            </div>
+            <div class="form-group">
+                <input id="code_code" type="text" class="form-control" placeholder="Code">
+            </div>
+            <button type="submit" class="btn btn-primary" value="Validate" onclick="confirmCode()">Submit</button>
+        </form>
+    </div>
+            <!--script type=text/javascript src="{{ url_for('static', filename='js/aws-cognito-sdk.min.js') }}"></script>
+            <script type=text/javascript src="{{ url_for('static', filename='js/amazon-cognito-identity.min.js') }}"></script-->
+                <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+                crossorigin="anonymous"></script>
+                
+        <!--script type=text/javascript src="{{ url_for('static', filename='js/aws-cognito-sdk.min.js') }}"></script>
+        <script type=text/javascript src="{{ url_for('static', filename='js/amazon-cognito-identity.min.js') }}"></script-->
+        <script type=text/javascript src="{{url_for('static', filename='js/meraki_auth.js') }}"></script>
+    </body>    
+{% endblock %}   
+</html>

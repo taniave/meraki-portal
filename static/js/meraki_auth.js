@@ -15,14 +15,7 @@ var node_mac = GetURLParameter("node_mac");
 var client_ip = GetURLParameter("client_ip");
 var client_mac = GetURLParameter("client_mac");
 
-// Print Meraki provided paramaters for Debugging State
-/*console.log("user_continue_url: "+user_continue_url);
-console.log("client_ip: "+client_ip);
-document.getElementById("baseGrantURL").innerHTML = base_grant_url;
-document.getElementById("userContinueURL").innerHTML = user_continue_url;
-document.getElementById("clientIP").innerHTML = client_ip;
-document.getElementById("clientMAC").innerHTML = client_mac;
-document.getElementById("nodeMAC").innerHTML = node_mac;*/
+
 
 // Form Submit handler.
 /*document.getElementById('account').onsubmit= function(e){
@@ -52,22 +45,7 @@ function authUser(){
     window.location.href = loginUrl;
 }
 
-// Button handler function to store the form data and login. 
-/*function login(){
-    // send the data somewhere like a database
-    var data = {};
-    data.name = document.getElementById("name").value;
-    data.name_ap = document.getElementById("name_ap").value;
-    data.name_am = document.getElementById("name_am").value;
-    data.email = document.getElementById("email").value;
-    alert("Hello "+data.name + data.name_ap + data.name_am +"\n"+"Thanks for providing your email: "+data.email);
-    console.log("Storing data to db...", data);
-    
 
-    // Complete Login
-    authUser();
-    signIn();
-}*/
 
 // Helper function to parse URL
 function GetURLParameter(sParam)
@@ -106,8 +84,7 @@ function signIn () {
         onSuccess: function(result) {
             var accessToken = result.getAccessToken().getJwtToken();
             console.log('access token + ' + accessToken );
-            //authUser();
-            //document.getElementById("loginForm").submit();
+
             window.location.href='/log';
     
           /*  //POTENTIAL: Region needs to be set if not already set previously elsewhere.
@@ -151,6 +128,7 @@ function register () {
     var password = $('#password').val();
     var email = $('#email').val();
 
+    /*
     console.log(name);
     console.log(name_mid);
     console.log(name_ap);
@@ -158,7 +136,7 @@ function register () {
     console.log(username);
     console.log(password);
     console.log(email);
-    
+    */
     var userPool = new CognitoUserPool(poolData);
     
     var attributeList = [];
@@ -210,7 +188,7 @@ function confirmCode () {
         window.location.href = "/index";
     });
 
-    //window.location.href = "/index";
+    
 }
 
 function signOut () {
@@ -267,8 +245,18 @@ function setWelcome(){
 }
 
 
+function cita(){
+    document.getElementById("loginForm").submit();
+    //window.location.href = "/cita";
+}
 
 
+/*
+-------- NOT IMPLEMENTED -> 
+the social media login is made via the AWS cognito service
+ and is handled by a link that is in the index template
+---------
+*/
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
@@ -319,7 +307,3 @@ function onSignInClicked() {
 
 
 
-function cita(){
-    document.getElementById("loginForm").submit();
-    //window.location.href = "/cita";
-}
